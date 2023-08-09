@@ -7,7 +7,7 @@
  *
  *
  */
-void add(struct_t **top, unsigned int line_number)
+void add(stack_t **top, unsigned int line_number)
 {
 
 }

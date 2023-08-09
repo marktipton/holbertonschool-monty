@@ -7,7 +7,7 @@
  *
  *
  */
-void nop(struct_t **top)
+void nop(stack_t **top)
 {
 
 }

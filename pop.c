@@ -1,8 +1,8 @@
 #include "monty.h"
 
-void pop(struct_t *top, int line_number)
+void pop(stack_t *top, int line_number)
 {
-	struct_t *temp;
+	stack_t *temp;
 
 	if (top == NULL)
 	{	
