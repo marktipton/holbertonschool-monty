@@ -9,6 +9,9 @@
 int main(int argc, char **argv)
 {
 	FILE* fp;
+	ssize_t num_chars = 0;
+	size_t len = 100;
+	char *line, *token;
 
 	if (argc != 2)
 	{
@@ -18,8 +21,17 @@ int main(int argc, char **argv)
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[0]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
+	line = malloc(len * sizeof(char));
+	while (num_chars != -1)
+	{
+		num_chars = getline(&line, &len, fp);
+		token = strtok(line, WHITESPACE);
+		get_monty_op(token);
+	}
+	fclose(fp);
+	free(fp);
+	return (0);
 }
