@@ -15,7 +15,7 @@ int _isdigit(int c)
 	{
 		return (0);
 	}
-	_putchar('\n');
+	printf("\n");
 }
 /**
  * push - adds a new element to the top of the stack
