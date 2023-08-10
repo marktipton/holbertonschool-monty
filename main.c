@@ -4,14 +4,14 @@
  *
  * @argc: argument count
  * @argv: argument vector
- * Return: 
+ * Return: 0 on success and 1 on failure
  */
 int main(int argc, char **argv)
 {
 	FILE* fp;
 	ssize_t num_chars = 0;
-	size_t len = 100;
-	char *line, *token;
+	size_t len = 100, line_count;
+	char *line, *token1, *token2;
 
 	if (argc != 2)
 	{
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	while (num_chars != -1)
 	{
 		num_chars = getline(&line, &len, fp);
-		token = strtok(line, WHITESPACE);
+		token1 = strtok(line, WHITESPACE);
 		get_monty_op(token);
 	}
 	fclose(fp);
