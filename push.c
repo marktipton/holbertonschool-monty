@@ -7,12 +7,14 @@ void push(stack_t **top, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		free(new_node);
-	new_node->n = line_number;
-	new_node->prev = NULL;
+	
+	new_node->n = n;
 	new_node->next = *top;
-	if (*top != NULL)
+	new_node->prev = NULL;
+	
+	if ((*top) != NULL)
 	{
 		(*top)->prev = new_node;
 	}
-	*top = new_node;
+	(*top) = new_node;
 }

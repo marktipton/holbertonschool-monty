@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/**
+ * main - interprets monty files
+ *
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 
+ */
 int main(int argc, char **argv)
 {
 	FILE* fp;
