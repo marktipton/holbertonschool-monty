@@ -8,5 +8,5 @@
  */
 void swap(stack_t **top, unsigned int line_number)
 {
-	
+	(void)top, (void)line_number;	
 }

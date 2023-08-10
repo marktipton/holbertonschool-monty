@@ -8,7 +8,7 @@ void push(stack_t **top, unsigned int line_number)
 	if (new_node == NULL)
 		free(new_node);
 	
-	new_node->n = n;
+	new_node->n = line_number;
 	new_node->next = *top;
 	new_node->prev = NULL;
 	

@@ -1,10 +1,12 @@
 #include "monty.h"
 
-void pall(stack_t *top)
+void pall(stack_t **top, unsigned int line_number)
 {
-	while (top != NULL)
+	(void)line_number;
+
+	while ((*top) != NULL)
 	{
-		printf("%d\n", top->n);
-		top = top->next;
+		printf("%d\n", (*top)->n);
+		*top = (*top)->next;
 	}
 }

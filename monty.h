@@ -36,13 +36,13 @@ typedef struct instruction_s
 } instruction_t;
 
 void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t *top);
-void pint(stack_t *top, unsigned int line_number);
-void pop(stack_t *top, int line_number);
+void pall(stack_t **top, unsigned int line_number);
+void pint(stack_t **top, unsigned int line_number);
+void pop(stack_t **top, unsigned int line_number);
 void swap(stack_t **top, unsigned int line_number);
 void add(stack_t **top, unsigned int line_number);
-void nop(stack_t **top);
-int (*get_monty_op(char *s))(int, int);
+void nop(stack_t **top, unsigned int line_number);
+void (*get_monty_op(char *s))(stack_t **stack, unsigned int);
 
 
 #endif
