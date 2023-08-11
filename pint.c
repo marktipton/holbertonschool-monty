@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * pint - prints the top element of the stack
+ *
+ * @top: top element of stack
+ * @line_number: current line number in monty file
+ */
 void pint(stack_t **top, unsigned int line_number)
 {
 	if (top == NULL)

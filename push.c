@@ -39,15 +39,14 @@ int is_integer(char *push_arg)
 /**
  * push - adds a new element to the top of the stack
  *
- * @top: top node of stack: line number of monty file
- * @line_number: line number of monty file
+ * @top: top node of stack
+ * @line_number: current line number of monty file
  *
  */
 void push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new_node;
-       
-	if
+
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		free(new_node);

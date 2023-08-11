@@ -1,4 +1,27 @@
 #include "monty.h"
+char **tokenizer(char *line)
+{
+	char *token_array[];
+	int i = 0;
+	char *dupline;
+
+	token_array = malloc(sizeof(char *) * 3);
+	if (token_array == NULL)
+	{
+		free(token_array);
+		return (NULL);
+	}
+	dupline = strdup(line);
+	token_array[0] = strtok(line, WHITESPACE);
+	token_array[1] = strtok(NULL, WHITESPACE);
+	token_array[2] = strtok(NULL, WHITESPACE);
+	if (token_array[2] != NULL || token_array[1] == NULL)
+		return (NULL);
+	return (token_array);
+	
+}
+
+
 /**
  * main - interprets monty files
  *
@@ -10,8 +33,9 @@ int main(int argc, char **argv)
 {
 	FILE* fp;
 	ssize_t num_chars = 0;
-	size_t len = 100, line_count;
-	char *line, *token1, *token2;
+	size_t len = 100, line_count = 0;
+	char *line;
+	char **tokens;
 
 	if (argc != 2)
 	{
@@ -27,11 +51,13 @@ int main(int argc, char **argv)
 	line = malloc(len * sizeof(char));
 	while (num_chars != -1)
 	{
+		line_count++;
 		num_chars = getline(&line, &len, fp);
-		token1 = strtok(line, WHITESPACE);
-		get_monty_op(token);
+		tokens = tokenizer(line);
+		get_monty_op(token[0], line_count);
 	}
 	fclose(fp);
 	free(fp);
+	free(tokens);
 	return (0);
 }
