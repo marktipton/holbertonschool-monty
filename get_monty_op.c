@@ -8,7 +8,7 @@
  *Return: operation or NULL
  */
 
-void (*get_monty_op(char *s))(stack_t **, unsigned int)
+void (*get_monty_op(char *s))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t instruction[] = {
 		{"push", push},

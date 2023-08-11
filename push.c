@@ -37,6 +37,38 @@ int is_integer(char *push_arg)
 	return (0);
 }
 /**
+ * check_line - handles extra argument input for push
+ *
+ * @line: monty file line input
+ * @top: top node in stack
+ * @line_number: current line number in monty file
+ * Return: token array or NULL if wrong input or malloc issue
+ */
+char *check_line(char *line, stack_t **top, unsigned int line_number)
+{
+	char *op_code, *push_arg;
+
+	op_code = strtok(line, WHITESPACE);
+	if (op_code == NULL)
+		return (NULL);
+	if (strcmp(op_code, "push") == 0)
+	{
+		push_arg = strtok(NULL, WHITESPACE);
+		if (is_integer(push_arg) == 0 && push_arg != NULL)
+		{
+			push(top, line_number);
+		}
+		else
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+	return (op_code);
+}
+
+
+/**
  * push - adds a new element to the top of the stack
  *
  * @top: top node of stack

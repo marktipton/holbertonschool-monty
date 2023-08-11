@@ -1,33 +1,5 @@
 #include "monty.h"
 /**
- * tokenizer - makes an array of tokens out of a string
- *
- * @line: monty file line input
- *
- * Return: token array or NULL if wrong input or malloc issue
- */
-char **tokenizer(char *line)
-{
-	char **token_array;
-	char *dupline;
-
-	token_array = malloc(sizeof(char *) * 3);
-	if (token_array == NULL)
-	{
-		free(token_array);
-		return (NULL);
-	}
-	dupline = strdup(line);
-	token_array[0] = strtok(dupline, WHITESPACE);
-	token_array[1] = strtok(NULL, WHITESPACE);
-	token_array[2] = strtok(NULL, WHITESPACE);
-	if (token_array[2] != NULL || token_array[1] == NULL)
-		return (NULL);
-	return (token_array);
-}
-
-
-/**
  * main - interprets monty files
  *
  * @argc: argument count

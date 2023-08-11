@@ -44,7 +44,7 @@ void swap(stack_t **top, unsigned int line_number);
 void add(stack_t **top, unsigned int line_number);
 void nop(stack_t **top, unsigned int line_number);
 void (*get_monty_op(char *s))(stack_t **, unsigned int);
-char **tokenizer(char *line);
+char *check_line(char *line, stack_t **top, unsigned int line_number);
 
 
 #endif
