@@ -8,8 +8,7 @@
  */
 char **tokenizer(char *line)
 {
-	char *token_array[];
-	int i = 0;
+	char **token_array;
 	char *dupline;
 
 	token_array = malloc(sizeof(char *) * 3);
@@ -19,7 +18,7 @@ char **tokenizer(char *line)
 		return (NULL);
 	}
 	dupline = strdup(line);
-	token_array[0] = strtok(line, WHITESPACE);
+	token_array[0] = strtok(dupline, WHITESPACE);
 	token_array[1] = strtok(NULL, WHITESPACE);
 	token_array[2] = strtok(NULL, WHITESPACE);
 	if (token_array[2] != NULL || token_array[1] == NULL)
@@ -60,7 +59,7 @@ int main(int argc, char **argv)
 		line_count++;
 		num_chars = getline(&line, &len, fp);
 		tokens = tokenizer(line);
-		get_monty_op(token[0], line_count);
+		get_monty_op(tokens[0]);
 	}
 	fclose(fp);
 	free(fp);

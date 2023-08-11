@@ -25,13 +25,13 @@ int _isdigit(int c)
  */
 int is_integer(char *push_arg)
 {
-	int i = 0;
+	size_t i = 0;
 
-	if (str == NULL || strlen(str) == 0)
+	if (push_arg == NULL || strlen(push_arg) == 0)
 		return (-1);
-	for (; i < strlen(str); i++)
+	for (; i < strlen(push_arg); i++)
 	{
-		if (_isdigit(str[i]) == -1)
+		if (_isdigit(push_arg[i]) == -1)
 			return (-1);
 	}
 	return (0);
