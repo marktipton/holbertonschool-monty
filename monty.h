@@ -45,6 +45,7 @@ void add(stack_t **top, unsigned int line_number);
 void nop(stack_t **top, unsigned int line_number);
 void (*get_monty_op(char *s))(stack_t **, unsigned int);
 char *check_line(char *line, stack_t **top, unsigned int line_number);
-
+void read_monty_file(char *filename, stack_t **stack);
+void free_stack_t(stack_t *head);
 
 #endif
