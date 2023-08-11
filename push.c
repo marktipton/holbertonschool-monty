@@ -19,7 +19,7 @@ int _isdigit(int c)
 /**
  * is_integer - checks if token following push is an integer
  *
- * @push_arg: argument for push command 
+ * @push_arg: argument for push command
  *
  * Return: 0 if integer and -1 if not integer
  */
@@ -29,7 +29,7 @@ int is_integer(char *push_arg)
 
 	if (str == NULL || strlen(str) == 0)
 		return (-1);
-	for(; i < strlen(str); i++)
+	for (; i < strlen(str); i++)
 	{
 		if (_isdigit(str[i]) == -1)
 			return (-1);
@@ -50,11 +50,11 @@ void push(stack_t **top, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		free(new_node);
-	
+
 	new_node->n = line_number;
 	new_node->next = *top;
 	new_node->prev = NULL;
-	
+
 	if ((*top) != NULL)
 	{
 		(*top)->prev = new_node;

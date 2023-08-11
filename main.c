@@ -1,4 +1,11 @@
 #include "monty.h"
+/**
+ * tokenizer - makes an array of tokens out of a string
+ *
+ * @line: monty file line input
+ *
+ * Return: token array or NULL if wrong input or malloc issue
+ */
 char **tokenizer(char *line)
 {
 	char *token_array[];
@@ -18,7 +25,6 @@ char **tokenizer(char *line)
 	if (token_array[2] != NULL || token_array[1] == NULL)
 		return (NULL);
 	return (token_array);
-	
 }
 
 
@@ -31,7 +37,7 @@ char **tokenizer(char *line)
  */
 int main(int argc, char **argv)
 {
-	FILE* fp;
+	FILE *fp;
 	ssize_t num_chars = 0;
 	size_t len = 100, line_count = 0;
 	char *line;
