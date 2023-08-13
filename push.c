@@ -19,7 +19,7 @@ int _isdigit(int c)
 /**
  * is_integer - checks if token following push is an integer
  *
- * @push_arg: argument for push command
+ * @arg: argument for push command
  *
  * Return: 0 if integer and -1 if not integer
  */
@@ -48,7 +48,7 @@ int push_arg;
 char *check_line(char *line, stack_t **top, unsigned int line_number)
 {
 	char *op_code, *arg;
-	
+
 	(void)top;
 
 	op_code = strtok(line, WHITESPACE);
