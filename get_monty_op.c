@@ -10,7 +10,7 @@
 
 void (*get_monty_op(char *s))(stack_t **stack, unsigned int line_number)
 {
-	instruction_t instruction[] = {
+	instruction_t inst[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
@@ -23,9 +23,10 @@ void (*get_monty_op(char *s))(stack_t **stack, unsigned int line_number)
 	int i;
 
 	i = 0;
-	while (instruction[i].opcode != NULL && *(instruction[i].opcode) != *s)
+	while (inst[i].opcode != NULL && strcmp(inst[i].opcode, s) != 0)
 	{
 		i++;
 	}
-	return (instruction[i].f);
+	printf("%s\n", inst[i].opcode);
+	return (inst[i].f);
 }
