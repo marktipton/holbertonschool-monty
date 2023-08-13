@@ -23,19 +23,20 @@ int _isdigit(int c)
  *
  * Return: 0 if integer and -1 if not integer
  */
-int is_integer(char *push_arg)
+int is_integer(char *arg)
 {
 	size_t i = 0;
 
-	if (push_arg == NULL || strlen(push_arg) == 0)
+	if (arg == NULL || strlen(arg) == 0)
 		return (-1);
-	for (; i < strlen(push_arg); i++)
+	for (; i < strlen(arg); i++)
 	{
-		if (_isdigit(push_arg[i]) == -1)
+		if (_isdigit(arg[i]) == -1)
 			return (-1);
 	}
 	return (0);
 }
+int push_arg;
 /**
  * check_line - handles extra argument input for push
  *
@@ -46,17 +47,19 @@ int is_integer(char *push_arg)
  */
 char *check_line(char *line, stack_t **top, unsigned int line_number)
 {
-	char *op_code, *push_arg;
+	char *op_code, *arg;
+	
+	(void)top;
 
 	op_code = strtok(line, WHITESPACE);
 	if (op_code == NULL)
 		return (NULL);
 	if (strcmp(op_code, "push") == 0)
 	{
-		push_arg = strtok(NULL, WHITESPACE);
-		if (is_integer(push_arg) == 0 && push_arg != NULL)
+		arg = strtok(NULL, WHITESPACE);
+		if (is_integer(arg) == 0 && arg != NULL)
 		{
-			push(top, line_number);
+			push_arg = atoi(arg);
 		}
 		else
 		{
@@ -66,7 +69,6 @@ char *check_line(char *line, stack_t **top, unsigned int line_number)
 	}
 	return (op_code);
 }
-
 
 /**
  * push - adds a new element to the top of the stack
@@ -79,11 +81,12 @@ void push(stack_t **top, unsigned int line_number)
 {
 	stack_t *new_node;
 
+	(void)line_number;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		free(new_node);
 
-	new_node->n = line_number;
+	new_node->n = push_arg;
 	new_node->next = *top;
 	new_node->prev = NULL;
 

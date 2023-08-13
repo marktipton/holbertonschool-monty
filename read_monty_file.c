@@ -16,7 +16,6 @@ void read_monty_file(char *filename, stack_t **stack)
 	char *line;
 	void (*f)(stack_t **stack, unsigned int line_number);
 
-
 	fp = fopen(filename, "r");
 	if (fp == NULL)
 	{
@@ -24,7 +23,6 @@ void read_monty_file(char *filename, stack_t **stack)
 		exit(EXIT_FAILURE);
 	}
 	line = malloc(sizeof(char) * 50);
-	
 	while ((num_chars = getline(&line, &len, fp)) != -1)
 	{
 		line = check_line(line, stack, line_count);
