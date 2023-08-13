@@ -12,7 +12,7 @@ void read_monty_file(char *filename, stack_t **stack)
 	FILE *fp;
 	size_t len = 50;
 	int num_chars = 0;
-	unsigned int line_count = 0;
+	unsigned int line_count = 1;
 	char *line;
 	void (*f)(stack_t **stack, unsigned int line_number);
 

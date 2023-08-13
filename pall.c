@@ -7,11 +7,14 @@
  */
 void pall(stack_t **top, unsigned int line_number)
 {
+	stack_t *traverse;
 	(void)line_number;
 
-	while ((*top) != NULL)
+	traverse = *top;
+
+	while (traverse != NULL)
 	{
-		printf("%d\n", (*top)->n);
-		*top = (*top)->next;
+		printf("%d\n", traverse->n);
+		traverse = traverse->next;
 	}
 }

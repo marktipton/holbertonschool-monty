@@ -7,11 +7,14 @@
  */
 void pint(stack_t **top, unsigned int line_number)
 {
-	if (top == NULL)
+	stack_t *traverse;
+
+	traverse = *top;
+	if (traverse == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*top)->n);
+	printf("%d\n", traverse->n);
 }
