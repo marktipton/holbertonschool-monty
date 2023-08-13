@@ -27,6 +27,5 @@ void (*get_monty_op(char *s))(stack_t **stack, unsigned int line_number)
 	{
 		i++;
 	}
-	printf("%s\n", inst[i].opcode);
 	return (inst[i].f);
 }
